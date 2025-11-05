@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>GleamVerse</title>
+	<link rel="icon" href="http://localhost:8000/static/jewellery/logo.png" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&family=Italiana&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="./style.css" />
+	<!-- Favicon optional: place a favicon.ico inside /frontend and uncomment below -->
+	<!-- <link rel="icon" href="./favicon.ico" /> -->
+</head>
+<body>
+    <div id="root"></div>
+    <!-- Clerk.js for frontend auth session management -->
+    <script async crossorigin data-clerk-publishable-key="pk_test_dG9wLXJheS0yOS5jbGVyay5hY2NvdW50cy5kZXYk" src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', async () => { if (window.Clerk && Clerk.load) { try { await Clerk.load(); } catch (e) {} } });
+    </script>
+    <!-- MediaPipe scripts for Try-On -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+    <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>
+
