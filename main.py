@@ -57,15 +57,38 @@ app = Flask(__name__)
 latest_jpeg_bytes = None
 
 
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0  # Disable caching for development
+app.static_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets")
+app.static_url_path = '/static'
+latest_jpeg_bytes = None
+
 @app.route("/")
 def index():
     return render_template_string(
         """
         <!doctype html>
         <html>
-          <head><title>ARJewelBox Preview</title></head>
-          <body style="background:#111;display:flex;align-items:center;justify-content:center;height:100vh">
-            <img src="/video_feed" style="max-width:100%;height:auto;border:1px solid #444"/>
+          <head>
+            <title>ARJewelBox Preview</title>
+            <style>
+              body {
+                background: #111;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                margin: 0;
+              }
+              img {
+                max-width: 100%;
+                height: auto;
+                border: 1px solid #444;
+              }
+            </style>
+          </head>
+          <body>
+            <img src="{{ url_for('static', filename='jewellery/necklace3.png') }}" id="jewelry-img" style="display:none;"/>
+            <img src="/video_feed" id="video-feed"/>
           </body>
         </html>
         """

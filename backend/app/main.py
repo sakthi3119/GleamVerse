@@ -20,9 +20,9 @@ app.add_middleware(
 app.include_router(auth.router, prefix="/auth", tags=["auth"])
 app.include_router(products.router, prefix="/products", tags=["products"])
 
-# Serve jewellery assets for demo (project-root/assets/jewellery)
+# Serve jewellery assets for demo (backend/assets/jewellery)
 project_root = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-assets_dir = os.path.join(project_root, "assets")
+assets_dir = os.path.join(project_root, "backend", "assets")
 static_jewellery_path = os.path.join(assets_dir, "jewellery")
 if os.path.isdir(static_jewellery_path):
 	app.mount("/static/jewellery", StaticFiles(directory=static_jewellery_path), name="jewellery")
